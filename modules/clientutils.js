@@ -849,7 +849,15 @@
          * @return Boolean
          */
         this.visible = function visible(selector) {
-            return [].some.call(this.findAll(selector), this.elementVisible);
+            
+            var elemsArray = new Array();
+            var elems = this.findAll(selector);
+
+            for (var i = 0; i < elems.length; i++) {
+                elemsArray.push(elems[i]);
+            }
+
+            return [].some.call(elemsArray, this.elementVisible);
         };
     };
 })(typeof exports === "object" ? exports : window);
